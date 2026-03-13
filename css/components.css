@@ -1,0 +1,398 @@
+/* ===== Title ===== */
+.game-title {
+  font-size: var(--fs-title);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.game-subtitle {
+  font-size: var(--fs-subtitle);
+  font-weight: 700;
+  opacity: 0.8;
+  font-family: var(--font-korean);
+}
+
+/* ===== Mode Cards ===== */
+.mode-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 0.6rem 1.2rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  border-radius: 60px;
+  transition: transform var(--transition-fast), background var(--transition-fast);
+}
+
+.mode-card:hover {
+  background: rgba(255, 255, 255, 0.18);
+  transform: scale(1.04);
+}
+
+.mode-card:active {
+  transform: scale(0.96);
+}
+
+.mode-badge {
+  width: clamp(56px, 14vw, 80px);
+  height: clamp(56px, 14vw, 80px);
+  flex-shrink: 0;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.15));
+}
+
+.mode-badge-svg {
+  width: 100%;
+  height: 100%;
+  color: #2c3e50;
+}
+
+.mode-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+.mode-name {
+  font-size: var(--fs-mode-name);
+  font-weight: 800;
+}
+
+.mode-desc {
+  font-size: var(--fs-mode-desc);
+  opacity: 0.7;
+  font-family: var(--font-korean);
+}
+
+/* ===== Progress Bar ===== */
+.progress-bar {
+  flex: 1;
+  max-width: 300px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 3px;
+  transition: width var(--transition-normal);
+}
+
+/* ===== Score Display ===== */
+.score-display {
+  font-size: var(--fs-score);
+  font-weight: 800;
+  opacity: 0.8;
+  margin-left: var(--space-sm);
+  white-space: nowrap;
+}
+
+/* ===== Prompt Word ===== */
+.prompt-word {
+  font-size: var(--fs-prompt);
+  font-weight: 900;
+  text-align: center;
+  line-height: 1.2;
+  animation: fadeInUp var(--transition-slow) ease;
+}
+
+/* ===== Option Buttons (Text Quiz) ===== */
+.option-btn {
+  width: 100%;
+  max-width: 400px;
+  padding: var(--space-sm) var(--space-md);
+  background: var(--option-bg);
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  font-size: var(--fs-option);
+  font-weight: 700;
+  font-family: var(--font-korean);
+  text-align: center;
+  transition: transform var(--transition-fast),
+              background-color var(--transition-fast),
+              border-color var(--transition-fast);
+  cursor: pointer;
+}
+
+.option-btn:hover {
+  background: var(--option-bg-hover);
+  transform: scale(1.03);
+}
+
+.option-btn:active {
+  transform: scale(0.97);
+}
+
+.option-btn.correct {
+  background: var(--correct-color);
+  border-color: var(--correct-color);
+  animation: pulse 0.4s ease;
+}
+
+.option-btn.incorrect {
+  background: var(--incorrect-color);
+  border-color: var(--incorrect-color);
+  animation: shake 0.4s ease;
+}
+
+.option-btn.disabled {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* ===== Image Option Buttons (Image Quiz) ===== */
+.image-option {
+  background: var(--option-bg);
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--transition-fast),
+              background-color var(--transition-fast),
+              border-color var(--transition-fast);
+  cursor: pointer;
+}
+
+.image-option:hover {
+  background: var(--option-bg-hover);
+  transform: scale(1.05);
+}
+
+.image-option:active {
+  transform: scale(0.95);
+}
+
+.image-option.correct {
+  background: var(--correct-color);
+  border-color: var(--correct-color);
+  animation: pulse 0.4s ease;
+}
+
+.image-option.incorrect {
+  background: var(--incorrect-color);
+  border-color: var(--incorrect-color);
+  animation: shake 0.4s ease;
+}
+
+.emoji-display {
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  line-height: 1;
+}
+
+/* ===== Image Options Grid ===== */
+.image-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+  width: 100%;
+  max-width: 400px;
+}
+
+.image-options .image-option {
+  aspect-ratio: 1;
+  width: 100%;
+}
+
+/* ===== Letter Arrange (Spell It) ===== */
+.letter-arrange-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  width: 100%;
+}
+
+.letter-slots {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.letter-slot {
+  width: clamp(36px, 10vw, 56px);
+  height: clamp(36px, 10vw, 56px);
+  border: 3px dashed rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-primary);
+  font-size: clamp(1.1rem, 4vw, 1.8rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  transition: border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.letter-slot.filled {
+  border-style: solid;
+  border-color: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.letter-tiles {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.letter-tile {
+  width: clamp(36px, 10vw, 56px);
+  height: clamp(36px, 10vw, 56px);
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--bg-color);
+  font-family: var(--font-primary);
+  font-size: clamp(1.1rem, 4vw, 1.8rem);
+  font-weight: 900;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  transition: transform var(--transition-fast), opacity var(--transition-fast), color var(--transition-bg);
+  cursor: pointer;
+}
+
+.letter-tile:hover {
+  transform: scale(1.1);
+}
+
+.letter-tile:active {
+  transform: scale(0.9);
+}
+
+.letter-tile.used {
+  opacity: 0.25;
+  transform: scale(0.85);
+  pointer-events: none;
+}
+
+.btn-undo {
+  font-size: var(--fs-score);
+  font-weight: 700;
+  opacity: 0.7;
+  padding: var(--space-xs) var(--space-sm);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  transition: opacity var(--transition-fast);
+}
+
+.btn-undo:hover {
+  opacity: 1;
+}
+
+.letter-slots.correct-word .letter-slot {
+  background: var(--correct-color);
+  border-color: var(--correct-color);
+}
+
+.letter-slots.incorrect-word {
+  animation: shake 0.4s ease;
+}
+
+.letter-slots.incorrect-word .letter-slot {
+  border-color: var(--incorrect-color);
+}
+
+/* ===== Back Button ===== */
+.btn-back {
+  position: absolute;
+  bottom: var(--space-sm);
+  left: var(--space-sm);
+  font-size: 1.5rem;
+  font-weight: 900;
+  opacity: 0.5;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: opacity var(--transition-fast), background var(--transition-fast);
+  z-index: 10;
+}
+
+.btn-back:hover {
+  opacity: 1;
+  background: var(--option-bg);
+}
+
+/* ===== Results Screen ===== */
+.results-title {
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  font-weight: 900;
+}
+
+.score-circle {
+  width: clamp(120px, 30vw, 180px);
+  height: clamp(120px, 30vw, 180px);
+  border: 6px solid rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.score-percentage {
+  font-size: clamp(2rem, 8vw, 3.5rem);
+  font-weight: 900;
+}
+
+.results-stats {
+  display: flex;
+  gap: var(--space-xl);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.stat-value {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 900;
+}
+
+.stat-label {
+  font-size: var(--fs-score);
+  font-weight: 700;
+  opacity: 0.7;
+}
+
+.results-actions {
+  display: flex;
+  gap: var(--space-sm);
+  margin-top: var(--space-sm);
+}
+
+.btn-replay,
+.btn-menu {
+  padding: var(--space-sm) var(--space-md);
+  background: var(--option-bg);
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  font-size: var(--fs-option);
+  font-weight: 800;
+  transition: transform var(--transition-fast), background var(--transition-fast);
+}
+
+.btn-replay:hover,
+.btn-menu:hover {
+  background: var(--option-bg-hover);
+  transform: scale(1.03);
+}
+
+.btn-replay:active,
+.btn-menu:active {
+  transform: scale(0.97);
+}

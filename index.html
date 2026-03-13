@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VocaGame - English → 한국어</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Noto+Sans+KR:wght@700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- SCREEN 1: Menu -->
+  <section id="screen-menu" class="screen active">
+    <div class="menu-container">
+      <h1 class="game-title">VocaGame</h1>
+      <p class="game-subtitle">English → 한국어</p>
+      <div class="mode-selector">
+        <button class="mode-card" data-mode="1">
+          <div class="mode-badge">
+            <svg viewBox="0 0 100 100" class="mode-badge-svg">
+              <circle cx="50" cy="50" r="46" fill="white" stroke="currentColor" stroke-width="5"/>
+              <circle cx="30" cy="35" r="14" fill="none" stroke="currentColor" stroke-width="3.5"/>
+              <text x="30" y="40" text-anchor="middle" fill="currentColor" font-size="16" font-weight="900" font-family="Nunito, sans-serif">가</text>
+              <circle cx="70" cy="35" r="14" fill="none" stroke="currentColor" stroke-width="3.5"/>
+              <text x="70" y="40" text-anchor="middle" fill="currentColor" font-size="16" font-weight="900" font-family="Nunito, sans-serif">나</text>
+              <circle cx="50" cy="68" r="14" fill="currentColor"/>
+              <text x="50" y="73" text-anchor="middle" fill="white" font-size="16" font-weight="900" font-family="Nunito, sans-serif">다</text>
+            </svg>
+          </div>
+          <div class="mode-text">
+            <span class="mode-name">Text Quiz</span>
+            <span class="mode-desc">뜻 고르기</span>
+          </div>
+        </button>
+        <button class="mode-card" data-mode="2">
+          <div class="mode-badge">
+            <svg viewBox="0 0 100 100" class="mode-badge-svg">
+              <circle cx="50" cy="50" r="46" fill="white" stroke="currentColor" stroke-width="5"/>
+              <circle cx="28" cy="30" r="5" fill="currentColor"/>
+              <circle cx="72" cy="30" r="5" fill="currentColor"/>
+              <circle cx="28" cy="74" r="5" fill="currentColor"/>
+              <circle cx="72" cy="74" r="5" fill="currentColor"/>
+              <text x="50" y="62" text-anchor="middle" fill="currentColor" font-size="38" font-weight="900" font-family="Nunito, sans-serif">A</text>
+            </svg>
+          </div>
+          <div class="mode-text">
+            <span class="mode-name">Image Quiz</span>
+            <span class="mode-desc">이미지 고르기</span>
+          </div>
+        </button>
+        <button class="mode-card" data-mode="3">
+          <div class="mode-badge">
+            <svg viewBox="0 0 100 100" class="mode-badge-svg">
+              <circle cx="50" cy="50" r="46" fill="white" stroke="currentColor" stroke-width="5"/>
+              <circle cx="33" cy="35" r="14" fill="none" stroke="currentColor" stroke-width="3.5"/>
+              <text x="33" y="40" text-anchor="middle" fill="currentColor" font-size="16" font-weight="900" font-family="Nunito, sans-serif">C</text>
+              <circle cx="67" cy="35" r="14" fill="none" stroke="currentColor" stroke-width="3.5"/>
+              <text x="67" y="40" text-anchor="middle" fill="currentColor" font-size="16" font-weight="900" font-family="Nunito, sans-serif">R</text>
+              <circle cx="50" cy="68" r="14" fill="none" stroke="currentColor" stroke-width="3.5"/>
+              <line x1="42" y1="60" x2="58" y2="76" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+              <line x1="58" y1="60" x2="42" y2="76" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="mode-text">
+            <span class="mode-name">Spell It</span>
+            <span class="mode-desc">철자 맞추기</span>
+          </div>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCREEN 2: Game -->
+  <section id="screen-game" class="screen">
+    <div class="game-hud">
+      <div class="progress-bar">
+        <div class="progress-fill"></div>
+      </div>
+      <div class="score-display">
+        <span class="score-correct">0</span>
+        <span class="score-separator"> / </span>
+        <span class="score-total">0</span>
+      </div>
+    </div>
+
+    <div class="question-area">
+      <div class="prompt-word"></div>
+    </div>
+
+    <div class="options-area"></div>
+
+    <button class="btn-back" aria-label="Back to menu">←</button>
+  </section>
+
+  <!-- SCREEN 3: Results -->
+  <section id="screen-results" class="screen">
+    <div class="results-container">
+      <h2 class="results-title">Round Complete!</h2>
+      <div class="results-score">
+        <div class="score-circle">
+          <span class="score-percentage">0%</span>
+        </div>
+      </div>
+      <div class="results-stats">
+        <div class="stat">
+          <span class="stat-value correct-count">0</span>
+          <span class="stat-label">Correct</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value incorrect-count">0</span>
+          <span class="stat-label">Incorrect</span>
+        </div>
+      </div>
+      <div class="results-actions">
+        <button class="btn-replay">Play Again</button>
+        <button class="btn-menu">Change Mode</button>
+      </div>
+    </div>
+  </section>
+
+  <script src="js/data.js"></script>
+  <script src="js/state.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/modes/textChoice.js"></script>
+  <script src="js/modes/imageChoice.js"></script>
+  <script src="js/modes/letterArrange.js"></script>
+  <script src="js/game.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+:root {
+  /* Typography */
+  --font-primary: 'Nunito', 'Arial Rounded MT Bold', sans-serif;
+  --font-korean: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+
+  /* Font sizes (fluid) */
+  --fs-prompt: clamp(2.5rem, 8vw, 6rem);
+  --fs-option: clamp(1.1rem, 3vw, 1.8rem);
+  --fs-title: clamp(3rem, 10vw, 7rem);
+  --fs-subtitle: clamp(1rem, 3vw, 1.5rem);
+  --fs-score: clamp(0.85rem, 2vw, 1.1rem);
+  --fs-mode-icon: clamp(2rem, 5vw, 3rem);
+  --fs-mode-name: clamp(1rem, 2.5vw, 1.3rem);
+  --fs-mode-desc: clamp(0.75rem, 2vw, 0.95rem);
+
+  /* Spacing */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 3rem;
+  --space-xl: 4rem;
+
+  /* Animation */
+  --transition-fast: 150ms ease;
+  --transition-normal: 300ms ease;
+  --transition-slow: 500ms ease;
+  --transition-bg: 600ms ease-in-out;
+
+  /* Dynamic colors (updated by JS) */
+  --bg-color: #3498DB;
+  --text-color: #FFFFFF;
+  --option-bg: rgba(255, 255, 255, 0.15);
+  --option-bg-hover: rgba(255, 255, 255, 0.25);
+  --correct-color: #2ECC71;
+  --incorrect-color: #E74C3C;
+}

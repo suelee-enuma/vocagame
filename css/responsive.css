@@ -1,0 +1,56 @@
+/* Mobile (default) */
+.option-btn {
+  padding: 0.7rem var(--space-sm);
+}
+
+/* Tablet and up */
+@media (min-width: 768px) {
+  .mode-selector {
+    max-width: 420px;
+  }
+
+  .mode-card {
+    padding: 0.8rem 1.5rem;
+  }
+
+  .option-btn {
+    padding: var(--space-sm) var(--space-md);
+  }
+
+  .options-area {
+    max-width: 600px;
+  }
+
+  .text-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-sm);
+    width: 100%;
+  }
+
+  .text-options .option-btn {
+    max-width: none;
+  }
+
+  .image-options {
+    max-width: 500px;
+  }
+
+  .letter-slot,
+  .letter-tile {
+    width: 56px;
+    height: 56px;
+    font-size: 1.6rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .options-area {
+    max-width: 700px;
+  }
+
+  .image-options {
+    max-width: 550px;
+  }
+}
