@@ -33,7 +33,7 @@ window.WORD_DATA = [
   { id: 26, english: "rain", korean: "비", japanese: "雨", category: "nature", emoji: "🌧️", difficulty: 1 },
   { id: 27, english: "snow", korean: "눈", japanese: "雪", category: "nature", emoji: "❄️", difficulty: 1 },
   { id: 28, english: "mountain", korean: "산", japanese: "山", category: "nature", emoji: "⛰️", difficulty: 2 },
-  { id: 29, english: "river", korean: "강", japanese: "川", category: "nature", emoji: null, difficulty: 1 },
+  { id: 29, english: "river", korean: "강", japanese: "川", category: "nature", emoji: "🏞️", difficulty: 1 },
   { id: 30, english: "cloud", korean: "구름", japanese: "雲", category: "nature", emoji: "☁️", difficulty: 1 },
 
   // Body (6)
