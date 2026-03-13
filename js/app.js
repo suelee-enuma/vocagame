@@ -2,6 +2,30 @@
 (function() {
   'use strict';
 
+  function updateGameLanguage(lang) {
+    var mode = GameState.getMode();
+    var targetFont = lang === 'japanese' ? 'var(--font-japanese)' : 'var(--font-korean)';
+
+    if (mode === 1) {
+      // Text Quiz: update option button text and font
+      document.querySelectorAll('.option-btn').forEach(function(btn) {
+        var wordId = parseInt(btn.dataset.wordId, 10);
+        var matches = WORD_DATA.filter(function(w) { return w.id === wordId; });
+        if (matches.length > 0) {
+          btn.textContent = matches[0][lang];
+          btn.style.fontFamily = targetFont;
+        }
+      });
+    } else if (mode === 3) {
+      // Spell It: update prompt word to new language
+      var currentWord = GameState.getCurrentWord();
+      if (currentWord) {
+        UI.setPromptWord(currentWord[lang], true);
+      }
+    }
+    // Mode 2 (Image Quiz): emoji display is language-independent
+  }
+
   function updateLanguageUI(lang) {
     // Update subtitle
     var subtitleLang = document.querySelector('.subtitle-lang');
@@ -59,6 +83,12 @@
       var next = current === 'korean' ? 'japanese' : 'korean';
       GameState.setLang(next);
       updateLanguageUI(next);
+
+      // Update in-game text if currently playing
+      var gameScreen = document.getElementById('screen-game');
+      if (gameScreen.classList.contains('active')) {
+        updateGameLanguage(next);
+      }
     });
 
     // Mode selection
