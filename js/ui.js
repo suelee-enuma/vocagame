@@ -30,11 +30,16 @@ window.UI = (function() {
       document.documentElement.style.setProperty('--bg-color', color);
     },
 
-    setPromptWord: function(text, useKoreanFont) {
+    setPromptWord: function(text, useTargetFont) {
       elements.promptWord.textContent = text;
-      elements.promptWord.style.fontFamily = useKoreanFont
-        ? 'var(--font-korean)'
-        : 'var(--font-primary)';
+      if (useTargetFont) {
+        var lang = GameState.getLang();
+        elements.promptWord.style.fontFamily = lang === 'japanese'
+          ? 'var(--font-japanese)'
+          : 'var(--font-korean)';
+      } else {
+        elements.promptWord.style.fontFamily = 'var(--font-primary)';
+      }
       // Re-trigger animation
       elements.promptWord.style.animation = 'none';
       // Force reflow

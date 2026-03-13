@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VocaGame - English → 한국어</title>
+  <title>VocaGame</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Noto+Sans+KR:wght@700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Noto+Sans+KR:wght@700;900&family=Noto+Sans+JP:wght@700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/layout.css">
@@ -20,23 +20,36 @@
   <section id="screen-menu" class="screen active">
     <div class="menu-container">
       <h1 class="game-title">VocaGame</h1>
-      <p class="game-subtitle">English → 한국어</p>
+      <p class="game-subtitle">English → <span class="subtitle-lang">한국어</span></p>
+
+      <!-- Language Selector -->
+      <div class="lang-selector">
+        <button class="lang-btn active" data-lang="korean">
+          <span class="lang-flag">🇰🇷</span>
+          <span class="lang-label">한국어</span>
+        </button>
+        <button class="lang-btn" data-lang="japanese">
+          <span class="lang-flag">🇯🇵</span>
+          <span class="lang-label">日本語</span>
+        </button>
+      </div>
+
       <div class="mode-selector">
         <button class="mode-card" data-mode="1">
           <div class="mode-badge">
             <svg viewBox="0 0 100 100" class="mode-badge-svg">
               <circle cx="50" cy="50" r="46" fill="white" stroke="currentColor" stroke-width="5"/>
               <circle cx="30" cy="35" r="14" fill="none" stroke="currentColor" stroke-width="3.5"/>
-              <text x="30" y="40" text-anchor="middle" fill="currentColor" font-size="16" font-weight="900" font-family="Nunito, sans-serif">가</text>
+              <text x="30" y="40" text-anchor="middle" fill="currentColor" font-size="16" font-weight="900" font-family="Nunito, sans-serif" class="badge-text-1">가</text>
               <circle cx="70" cy="35" r="14" fill="none" stroke="currentColor" stroke-width="3.5"/>
-              <text x="70" y="40" text-anchor="middle" fill="currentColor" font-size="16" font-weight="900" font-family="Nunito, sans-serif">나</text>
+              <text x="70" y="40" text-anchor="middle" fill="currentColor" font-size="16" font-weight="900" font-family="Nunito, sans-serif" class="badge-text-2">나</text>
               <circle cx="50" cy="68" r="14" fill="currentColor"/>
-              <text x="50" y="73" text-anchor="middle" fill="white" font-size="16" font-weight="900" font-family="Nunito, sans-serif">다</text>
+              <text x="50" y="73" text-anchor="middle" fill="white" font-size="16" font-weight="900" font-family="Nunito, sans-serif" class="badge-text-3">다</text>
             </svg>
           </div>
           <div class="mode-text">
             <span class="mode-name">Text Quiz</span>
-            <span class="mode-desc">뜻 고르기</span>
+            <span class="mode-desc" data-ko="뜻 고르기" data-ja="意味を選ぶ">뜻 고르기</span>
           </div>
         </button>
         <button class="mode-card" data-mode="2">
@@ -52,7 +65,7 @@
           </div>
           <div class="mode-text">
             <span class="mode-name">Image Quiz</span>
-            <span class="mode-desc">이미지 고르기</span>
+            <span class="mode-desc" data-ko="이미지 고르기" data-ja="画像を選ぶ">이미지 고르기</span>
           </div>
         </button>
         <button class="mode-card" data-mode="3">
@@ -70,7 +83,7 @@
           </div>
           <div class="mode-text">
             <span class="mode-name">Spell It</span>
-            <span class="mode-desc">철자 맞추기</span>
+            <span class="mode-desc" data-ko="철자 맞추기" data-ja="スペルを当てる">철자 맞추기</span>
           </div>
         </button>
       </div>

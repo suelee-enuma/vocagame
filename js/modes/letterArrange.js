@@ -83,8 +83,9 @@ window.LetterArrange = (function() {
       attempts = 0;
       currentWord = word;
 
-      // Show Korean meaning as prompt
-      UI.setPromptWord(word.korean, true);
+      // Show target language meaning as prompt
+      var lang = GameState.getLang();
+      UI.setPromptWord(word[lang], true);
 
       var container = document.createElement('div');
       container.className = 'letter-arrange-container';

@@ -12,6 +12,7 @@ window.GameState = (function() {
 
   var state = {
     currentMode: 1,
+    currentLang: 'korean',
     wordPool: [],
     currentIndex: 0,
     totalQuestions: 20,
@@ -28,6 +29,14 @@ window.GameState = (function() {
   return {
     getMode: function() {
       return state.currentMode;
+    },
+
+    getLang: function() {
+      return state.currentLang;
+    },
+
+    setLang: function(lang) {
+      state.currentLang = lang;
     },
 
     getCurrentWord: function() {

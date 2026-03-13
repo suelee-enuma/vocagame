@@ -2,6 +2,7 @@
   /* Typography */
   --font-primary: 'Nunito', 'Arial Rounded MT Bold', sans-serif;
   --font-korean: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+  --font-japanese: 'Noto Sans JP', 'Hiragino Sans', sans-serif;
 
   /* Font sizes (fluid) */
   --fs-prompt: clamp(2.5rem, 8vw, 6rem);

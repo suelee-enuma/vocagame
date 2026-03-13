@@ -13,6 +13,49 @@
   font-family: var(--font-korean);
 }
 
+/* ===== Language Selector ===== */
+.lang-selector {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.3rem;
+}
+
+.lang-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 1rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 2.5px solid rgba(255, 255, 255, 0.2);
+  border-radius: 30px;
+  font-size: var(--fs-mode-desc);
+  font-weight: 700;
+  opacity: 0.6;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.lang-btn:hover {
+  opacity: 0.9;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.lang-btn.active {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+.lang-flag {
+  font-size: 1.2em;
+  line-height: 1;
+}
+
+.lang-label {
+  font-family: var(--font-primary);
+  font-weight: 800;
+}
+
 /* ===== Mode Cards ===== */
 .mode-card {
   display: flex;
