@@ -130,15 +130,31 @@
   <button class="lang-toggle" aria-label="Change language">
     <svg viewBox="0 0 100 100" class="lang-toggle-svg" id="flag-korean">
       <circle cx="50" cy="50" r="46" fill="#FFFFFF" stroke="#2c3e50" stroke-width="4.5"/>
-      <!-- Korean flag: Taegeuk -->
-      <clipPath id="taegeuk-clip"><circle cx="50" cy="50" r="20"/></clipPath>
-      <g clip-path="url(#taegeuk-clip)">
-        <rect x="30" y="30" width="40" height="20" fill="#CD2E3A"/>
-        <rect x="30" y="50" width="40" height="20" fill="#0047A0"/>
-        <circle cx="50" cy="40" r="10" fill="#0047A0"/>
-        <circle cx="50" cy="60" r="10" fill="#CD2E3A"/>
+      <!-- Taegeuk (S-curve arc paths) -->
+      <path d="M30,50 A20,20 0 1,1 70,50 A10,10 0 0,1 50,50 A10,10 0 0,0 30,50 Z" fill="#CD2E3A"/>
+      <path d="M70,50 A20,20 0 1,1 30,50 A10,10 0 0,1 50,50 A10,10 0 0,0 70,50 Z" fill="#0047A0"/>
+      <!-- 건 ☰ upper-left: 3 solid -->
+      <g transform="rotate(-45, 50, 50)">
+        <rect x="43" y="13" width="14" height="2.5" fill="#222"/><rect x="43" y="17.5" width="14" height="2.5" fill="#222"/><rect x="43" y="22" width="14" height="2.5" fill="#222"/>
       </g>
-      <circle cx="50" cy="50" r="20" fill="none" stroke="none"/>
+      <!-- 감 ☵ upper-right: broken-solid-broken -->
+      <g transform="rotate(45, 50, 50)">
+        <rect x="43" y="13" width="5.5" height="2.5" fill="#222"/><rect x="51.5" y="13" width="5.5" height="2.5" fill="#222"/>
+        <rect x="43" y="17.5" width="14" height="2.5" fill="#222"/>
+        <rect x="43" y="22" width="5.5" height="2.5" fill="#222"/><rect x="51.5" y="22" width="5.5" height="2.5" fill="#222"/>
+      </g>
+      <!-- 곤 ☷ lower-right: 3 broken -->
+      <g transform="rotate(135, 50, 50)">
+        <rect x="43" y="13" width="5.5" height="2.5" fill="#222"/><rect x="51.5" y="13" width="5.5" height="2.5" fill="#222"/>
+        <rect x="43" y="17.5" width="5.5" height="2.5" fill="#222"/><rect x="51.5" y="17.5" width="5.5" height="2.5" fill="#222"/>
+        <rect x="43" y="22" width="5.5" height="2.5" fill="#222"/><rect x="51.5" y="22" width="5.5" height="2.5" fill="#222"/>
+      </g>
+      <!-- 리 ☲ lower-left: solid-broken-solid -->
+      <g transform="rotate(225, 50, 50)">
+        <rect x="43" y="13" width="14" height="2.5" fill="#222"/>
+        <rect x="43" y="17.5" width="5.5" height="2.5" fill="#222"/><rect x="51.5" y="17.5" width="5.5" height="2.5" fill="#222"/>
+        <rect x="43" y="22" width="14" height="2.5" fill="#222"/>
+      </g>
     </svg>
     <svg viewBox="0 0 100 100" class="lang-toggle-svg hidden" id="flag-japanese">
       <circle cx="50" cy="50" r="46" fill="#FFFFFF" stroke="#2c3e50" stroke-width="4.5"/>
