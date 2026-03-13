@@ -22,6 +22,20 @@
       if (currentWord) {
         UI.setPromptWord(currentWord[lang], true);
       }
+    } else if (mode === 4) {
+      // Timer mode: update based on current sub-mode
+      var subMode = GameState.getCurrentSubMode();
+      if (subMode === 1) {
+        document.querySelectorAll('.option-btn').forEach(function(btn) {
+          var wordId = parseInt(btn.dataset.wordId, 10);
+          var matches = WORD_DATA.filter(function(w) { return w.id === wordId; });
+          if (matches.length > 0) {
+            btn.textContent = matches[0][lang];
+            btn.style.fontFamily = targetFont;
+          }
+        });
+      }
+      // subMode 2 (Image Quiz): emoji is language-independent
     }
     // Mode 2 (Image Quiz): emoji display is language-independent
   }
@@ -101,6 +115,7 @@
 
     // Back to menu
     document.querySelector('.btn-back').addEventListener('click', function() {
+      GameState.clearTimer();
       UI.showScreen('screen-menu');
       UI.setBackgroundColor(COLOR_PALETTE[0]);
     });

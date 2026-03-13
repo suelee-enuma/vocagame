@@ -429,3 +429,44 @@
 .btn-menu:active {
   transform: scale(0.97);
 }
+
+/* ===== Timer Display ===== */
+.timer-display {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
+  font-weight: 900;
+  opacity: 0.9;
+}
+
+.timer-display.hidden {
+  display: none;
+}
+
+.timer-icon {
+  font-size: 1em;
+}
+
+.timer-seconds {
+  min-width: 2ch;
+  text-align: center;
+}
+
+.timer-display.timer-urgent {
+  color: #FFD93D;
+}
+
+.timer-display.timer-critical {
+  animation: timerPulse 0.5s ease infinite;
+  color: #FF6B6B;
+}
+
+@keyframes timerPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+.progress-bar.hidden {
+  display: none;
+}

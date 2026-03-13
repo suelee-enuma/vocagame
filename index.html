@@ -74,6 +74,28 @@
             <span class="mode-desc" data-ko="철자 맞추기" data-ja="スペルを当てる">철자 맞추기</span>
           </div>
         </button>
+        <button class="mode-card" data-mode="4">
+          <div class="mode-badge">
+            <svg viewBox="0 0 100 100" class="mode-badge-svg">
+              <circle cx="50" cy="50" r="46" fill="white" stroke="currentColor" stroke-width="5"/>
+              <!-- Clock face dots at 12, 3, 6, 9 -->
+              <circle cx="50" cy="14" r="3.5" fill="currentColor"/>
+              <circle cx="86" cy="50" r="3.5" fill="currentColor"/>
+              <circle cx="50" cy="86" r="3.5" fill="currentColor"/>
+              <circle cx="14" cy="50" r="3.5" fill="currentColor"/>
+              <!-- Minute hand -->
+              <line x1="50" y1="50" x2="50" y2="22" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+              <!-- Hour hand -->
+              <line x1="50" y1="50" x2="68" y2="38" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"/>
+              <!-- Center dot -->
+              <circle cx="50" cy="50" r="4" fill="currentColor"/>
+            </svg>
+          </div>
+          <div class="mode-text">
+            <span class="mode-name">Timer</span>
+            <span class="mode-desc" data-ko="시간 도전" data-ja="タイムアタック">시간 도전</span>
+          </div>
+        </button>
       </div>
     </div>
   </section>
@@ -83,6 +105,10 @@
     <div class="game-hud">
       <div class="progress-bar">
         <div class="progress-fill"></div>
+      </div>
+      <div class="timer-display hidden">
+        <span class="timer-icon">&#9201;</span>
+        <span class="timer-seconds">60</span>
       </div>
       <div class="score-display">
         <span class="score-correct">0</span>
@@ -163,13 +189,14 @@
     </svg>
   </button>
 
-  <script src="js/data.js"></script>
-  <script src="js/state.js"></script>
-  <script src="js/ui.js"></script>
-  <script src="js/modes/textChoice.js"></script>
-  <script src="js/modes/imageChoice.js"></script>
-  <script src="js/modes/letterArrange.js"></script>
-  <script src="js/game.js"></script>
-  <script src="js/app.js"></script>
+  <script src="js/data.js?v=2"></script>
+  <script src="js/state.js?v=2"></script>
+  <script src="js/ui.js?v=2"></script>
+  <script src="js/modes/textChoice.js?v=2"></script>
+  <script src="js/modes/imageChoice.js?v=2"></script>
+  <script src="js/modes/letterArrange.js?v=2"></script>
+  <script src="js/modes/timer.js?v=2"></script>
+  <script src="js/game.js?v=2"></script>
+  <script src="js/app.js?v=2"></script>
 </body>
 </html>

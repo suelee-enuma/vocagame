@@ -16,6 +16,9 @@ window.UI = (function() {
         scorePercentage: document.querySelector('.score-percentage'),
         correctCount: document.querySelector('.correct-count'),
         incorrectCount: document.querySelector('.incorrect-count'),
+        progressBar: document.querySelector('.progress-bar'),
+        timerDisplay: document.querySelector('.timer-display'),
+        timerSeconds: document.querySelector('.timer-seconds'),
       };
     },
 
@@ -67,6 +70,30 @@ window.UI = (function() {
       elements.scorePercentage.textContent = pct + '%';
       elements.correctCount.textContent = score.correct;
       elements.incorrectCount.textContent = score.incorrect;
+    },
+
+    showTimerHUD: function() {
+      elements.progressBar.classList.add('hidden');
+      elements.timerDisplay.classList.remove('hidden');
+    },
+
+    showProgressHUD: function() {
+      elements.progressBar.classList.remove('hidden');
+      elements.timerDisplay.classList.add('hidden');
+    },
+
+    updateTimer: function(seconds) {
+      elements.timerSeconds.textContent = seconds;
+      if (seconds <= 5) {
+        elements.timerDisplay.classList.add('timer-critical');
+        elements.timerDisplay.classList.remove('timer-urgent');
+      } else if (seconds <= 10) {
+        elements.timerDisplay.classList.add('timer-urgent');
+        elements.timerDisplay.classList.remove('timer-critical');
+      } else {
+        elements.timerDisplay.classList.remove('timer-urgent');
+        elements.timerDisplay.classList.remove('timer-critical');
+      }
     },
 
     disableAllOptions: function() {

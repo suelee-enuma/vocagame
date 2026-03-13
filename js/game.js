@@ -29,6 +29,15 @@ window.Game = (function() {
     start: function(mode) {
       GameState.initRound(mode);
       UI.showScreen('screen-game');
+
+      if (GameState.isTimerMode()) {
+        UI.showTimerHUD();
+        UI.updateTimer(GameState.getTimerRemaining());
+        TimerMode.startCountdown();
+      } else {
+        UI.showProgressHUD();
+      }
+
       this.showNextQuestion();
     },
 
@@ -36,15 +45,34 @@ window.Game = (function() {
       var word = GameState.getCurrentWord();
       var color = GameState.getCurrentColor();
       UI.setBackgroundColor(color);
-      UI.updateProgress(GameState.getProgress());
       var score = GameState.getScore();
       UI.updateScore(score.correct, score.total);
 
+      if (!GameState.isTimerMode()) {
+        UI.updateProgress(GameState.getProgress());
+      }
+
       var mode = GameState.getMode();
-      switch (mode) {
-        case 1: TextChoice.render(word); break;
-        case 2: ImageChoice.render(word); break;
-        case 3: LetterArrange.render(word); break;
+
+      if (mode === 4) {
+        // Timer mode: randomly pick Text or Image quiz
+        var subMode = Math.random() < 0.5 ? 1 : 2;
+        // Force text mode if word has no emoji
+        if (!word.emoji) {
+          subMode = 1;
+        }
+        GameState.setCurrentSubMode(subMode);
+        if (subMode === 1) {
+          TextChoice.render(word);
+        } else {
+          ImageChoice.render(word);
+        }
+      } else {
+        switch (mode) {
+          case 1: TextChoice.render(word); break;
+          case 2: ImageChoice.render(word); break;
+          case 3: LetterArrange.render(word); break;
+        }
       }
     },
 
@@ -71,6 +99,13 @@ window.Game = (function() {
       var self = this;
 
       setTimeout(function() {
+        // Check if timer ran out during answer animation
+        if (GameState.isTimerMode() && GameState.getTimerRemaining() <= 0) {
+          self.endRound();
+          GameState.setTransitioning(false);
+          return;
+        }
+
         var hasMore = GameState.advanceQuestion();
         if (hasMore) {
           self.showNextQuestion();
@@ -82,6 +117,7 @@ window.Game = (function() {
     },
 
     endRound: function() {
+      GameState.clearTimer();
       var score = GameState.getScore();
       UI.renderResults(score);
       UI.showScreen('screen-results');
