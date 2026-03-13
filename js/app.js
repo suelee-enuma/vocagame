@@ -2,7 +2,7 @@
 (function() {
   'use strict';
 
-  function updateMenuLanguage(lang) {
+  function updateLanguageUI(lang) {
     // Update subtitle
     var subtitleLang = document.querySelector('.subtitle-lang');
     subtitleLang.textContent = lang === 'japanese' ? '日本語' : '한국어';
@@ -37,10 +37,13 @@
       }
     }
 
-    // Update active button state
-    document.querySelectorAll('.lang-btn').forEach(function(btn) {
-      btn.classList.toggle('active', btn.dataset.lang === lang);
-    });
+    // Toggle flag icons
+    var flagKorean = document.getElementById('flag-korean');
+    var flagJapanese = document.getElementById('flag-japanese');
+    if (flagKorean && flagJapanese) {
+      flagKorean.classList.toggle('hidden', lang !== 'korean');
+      flagJapanese.classList.toggle('hidden', lang !== 'japanese');
+    }
   }
 
   document.addEventListener('DOMContentLoaded', function() {
@@ -49,13 +52,13 @@
     // Set initial background color
     UI.setBackgroundColor(COLOR_PALETTE[0]);
 
-    // Language selection
-    document.querySelectorAll('.lang-btn').forEach(function(btn) {
-      btn.addEventListener('click', function() {
-        var lang = btn.dataset.lang;
-        GameState.setLang(lang);
-        updateMenuLanguage(lang);
-      });
+    // Floating language toggle
+    var langToggle = document.querySelector('.lang-toggle');
+    langToggle.addEventListener('click', function() {
+      var current = GameState.getLang();
+      var next = current === 'korean' ? 'japanese' : 'korean';
+      GameState.setLang(next);
+      updateLanguageUI(next);
     });
 
     // Mode selection

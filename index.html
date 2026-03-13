@@ -22,18 +22,6 @@
       <h1 class="game-title">VocaGame</h1>
       <p class="game-subtitle">English → <span class="subtitle-lang">한국어</span></p>
 
-      <!-- Language Selector -->
-      <div class="lang-selector">
-        <button class="lang-btn active" data-lang="korean">
-          <span class="lang-flag">🇰🇷</span>
-          <span class="lang-label">한국어</span>
-        </button>
-        <button class="lang-btn" data-lang="japanese">
-          <span class="lang-flag">🇯🇵</span>
-          <span class="lang-label">日本語</span>
-        </button>
-      </div>
-
       <div class="mode-selector">
         <button class="mode-card" data-mode="1">
           <div class="mode-badge">
@@ -137,6 +125,27 @@
       </div>
     </div>
   </section>
+
+  <!-- Floating Language Toggle -->
+  <button class="lang-toggle" aria-label="Change language">
+    <svg viewBox="0 0 100 100" class="lang-toggle-svg" id="flag-korean">
+      <circle cx="50" cy="50" r="46" fill="#FFFFFF" stroke="#2c3e50" stroke-width="4.5"/>
+      <!-- Korean flag: Taegeuk -->
+      <clipPath id="taegeuk-clip"><circle cx="50" cy="50" r="20"/></clipPath>
+      <g clip-path="url(#taegeuk-clip)">
+        <rect x="30" y="30" width="40" height="20" fill="#CD2E3A"/>
+        <rect x="30" y="50" width="40" height="20" fill="#0047A0"/>
+        <circle cx="50" cy="40" r="10" fill="#0047A0"/>
+        <circle cx="50" cy="60" r="10" fill="#CD2E3A"/>
+      </g>
+      <circle cx="50" cy="50" r="20" fill="none" stroke="none"/>
+    </svg>
+    <svg viewBox="0 0 100 100" class="lang-toggle-svg hidden" id="flag-japanese">
+      <circle cx="50" cy="50" r="46" fill="#FFFFFF" stroke="#2c3e50" stroke-width="4.5"/>
+      <!-- Japanese flag: Hinomaru -->
+      <circle cx="50" cy="50" r="16" fill="#BC002D"/>
+    </svg>
+  </button>
 
   <script src="js/data.js"></script>
   <script src="js/state.js"></script>

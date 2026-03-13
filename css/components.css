@@ -13,58 +13,37 @@
   font-family: var(--font-korean);
 }
 
-/* ===== Language Selector ===== */
-.lang-selector {
-  display: flex;
-  gap: 0.75rem;
-  margin-bottom: 0.5rem;
-  width: 100%;
-  max-width: 320px;
-}
-
-.lang-btn {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.3rem;
-  padding: 0.8rem 0.5rem;
-  background: rgba(255, 255, 255, 0.08);
-  border: 3px solid rgba(255, 255, 255, 0.15);
-  border-radius: 16px;
-  font-size: var(--fs-mode-desc);
-  font-weight: 700;
-  opacity: 0.55;
-  transition: all var(--transition-fast);
+/* ===== Language Toggle (floating) ===== */
+.lang-toggle {
+  position: fixed;
+  bottom: var(--space-sm);
+  right: var(--space-sm);
+  width: clamp(48px, 12vw, 60px);
+  height: clamp(48px, 12vw, 60px);
+  padding: 0;
+  border: none;
+  background: none;
   cursor: pointer;
+  z-index: 100;
+  filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.25));
+  transition: transform var(--transition-fast);
 }
 
-.lang-btn:hover {
-  opacity: 0.85;
-  background: rgba(255, 255, 255, 0.15);
-  transform: scale(1.04);
+.lang-toggle:hover {
+  transform: scale(1.12);
 }
 
-.lang-btn:active {
-  transform: scale(0.96);
+.lang-toggle:active {
+  transform: scale(0.92);
 }
 
-.lang-btn.active {
-  opacity: 1;
-  background: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.7);
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+.lang-toggle-svg {
+  width: 100%;
+  height: 100%;
 }
 
-.lang-flag {
-  font-size: 2rem;
-  line-height: 1;
-}
-
-.lang-label {
-  font-family: var(--font-primary);
-  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
-  font-weight: 800;
+.lang-toggle-svg.hidden {
+  display: none;
 }
 
 /* ===== Mode Cards ===== */
